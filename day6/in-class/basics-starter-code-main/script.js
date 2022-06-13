@@ -1,20 +1,24 @@
-var mode = "dice roll";
-var gamesWon = 0;
-var gamesLoss = 0;
-var instruction1 = "Please input the number of dice you wish to roll"
-var instruction2 = "Please input your guess 1 to 6"
-var userGuess = 0;
-var numOfDice = 0;
-
-var main = function(input){
-  var  myOutputValue = 4;
+//Use loops to create an app that draws emojis into the grey box. See here for how to input Emoji on Windows and here for how to input emoji on Mac
+var myOutputValue = "";
+var main = function (input) {
+  var i = 0;
+  while (i < input){
+    var j = 0;
+    while (j <= i){
+      myOutputValue += "❤";
+      j++;
+    }
+    myOutputValue += "<br>";
+    i++;
+  }
+  console.log(myOutputValue);
   return myOutputValue;
-}
-
-var diceGame = function(input){
-  
-}
-
-var rollDice = function(){
-  var diceNum =  Math.floor(Math.random()*6) + 1;
+};
+//user to gues a number from 1 to 6
+var main = function(input){
+  if (userInput < 1 || userInput > 6){
+    //tell user is invalid input
+    //pls try  again
+  }
+  //other code uses input
 }

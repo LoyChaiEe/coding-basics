@@ -5,7 +5,7 @@ What part of the assignment did you spend the most time on?: First part was reve
 
 How comfortable did you feel with this assignment? (1-5): 3.5
 
-Is there anything in this code that you feel pleased about?: The ability for user to switch control easily and no unitentional error (hopefully)
+Is there anything in this code that you feel pleased about?: The ability for user to switch control easily and no unintentional error (hopefully)
 
 What's one aspect of your code you would like specific, elaborate feedback on?: tbh, Im not sure. Maybe making the code more readadle or optimizing? But feel free to be as critical as possible so I can learn.
 
