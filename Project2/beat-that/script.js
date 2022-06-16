@@ -14,7 +14,7 @@
 //4. Auto-generated combination (done)
 //5. Varied number of players (done)
 //6. Varied number of dice (done)
-//7. Knockout
+//7. Knockout (not started)
 
 var numOfPlayers = 0;
 var numOfDice = 0;
