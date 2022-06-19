@@ -1,36 +1,42 @@
 var deck = []
+var gamemode = "set-up"
 
 // Shuffle the deck and save it in a new variable shuffledDeck
 // to communicate that we have shuffled the deck.
 
 var main = function (input) {
-  makeDeck()
-  //console.log(deck)
-  //console.log(deck.length)
-  /*for(let i = 0; i < deck.length; i++)
-  {
-    console.log(deck[i])
-  }*/
-  var shuffledDeck = shuffleCards(deck)
-  //console.log(shuffledDeck)
-  // Draw 2 cards from the top of the deck
-  var computerCard1 = shuffledDeck.pop();
-  var playerCard1 = shuffledDeck.pop();
-  var computerCard2 = shuffledDeck.pop();
-  var playerCard2 = shuffledDeck.pop();
+  var output = ""
+  switch(gamemode){
+    case "set-up":
+      setup()
+      output = `Welcome to Moar Cards!<br<br>Choose which mode you want to play:<br><br>1. High card<br>2. Low Card<br><br>Type in the number to choose`
+      gamemode = "Select Mode"
+      break;
+    case "Select Mode":
+      output = selectMode(input)
+      break;
+    case "High Card":
+      output = game();
+      break;
+    case "Low Card":
+      output = game()
 
+  }
+};
+var selectMode = function(userChoice){
+
+}
+var game = function(){
+  let myOutputValue = ""
+  let playerHand = []
+  let sizeOfHand = ""
+  while(isNaN(sizeOfHand) === false && Number.isInteger(sizeOfHand) == false)
+  prompt("How many cards")
+  let computerCard = shuffledDeck.pop();
   // Construct an output string to communicate which cards were drawn
-  var myOutputValue =
-    'Computer had ' + computerCard1.name + ' of ' + computerCard1.suit + 
-    ' and ' + computerCard2.name + ' of ' + computerCard2.suit +
-    '. <br>Player had ' + playerCard1.name + ' of ' + playerCard1.suit +
-    ' and ' + playerCard2.name + ' of ' + playerCard2.suit + '. ';
-
   // Compare computer and player cards by rank attribute
   // If computer card rank is greater than player card rank, computer wins
-  var playerWinnerCard = cardComparator(playerCard1,playerCard2)
-  var computerWinnerCard = cardComparator(computerCard1,computerCard2)
-  var winnerCard = cardComparator(playerWinnerCard, computerWinnerCard)
+  var winnerCard = cardComparator(player1Card, player2Card)
 
   if(playerWinnerCard == computerWinnerCard){
     myOutputValue += 'It is a tie!'
@@ -43,7 +49,12 @@ var main = function (input) {
     myOutputValue += 'Computer wins!'
   }
   return myOutputValue;
-};
+}
+//set-up
+var setup = function(){
+  makeDeck()
+  deck = [...shuffleCards(deck)]
+}
 var makeDeck = function(){
   var suit = ["❤️", "♦", "♣", "♠️"]
   var name = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", ]
@@ -62,25 +73,24 @@ var makeDeck = function(){
 }
 var shuffleCards = function(shufflingDeck){
   for (let i = shufflingDeck.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * i);
+    let j = Math.floor(Math.random() * shufflingDeck.length);
     let temp = shufflingDeck[i];
     shufflingDeck[i] = shufflingDeck[j];
     shufflingDeck[j] = temp;
   }
   return shufflingDeck
 }
-
 //Compare card and return winning card
 var cardComparator = function(card1, card2){
   if(card1.rank === card2.rank){
-    return card1
+    return false
   }
   else if (card1.rank > card2.rank) {
     // Add conditional-dependent text to the output string
-    return card1
+    return true
     // Else if computer card rank is less than player card rank, player wins
   } 
   else if(card2.rank > card1.rank){
-    return card2
+    return false
   }
 }

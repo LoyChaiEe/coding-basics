@@ -54,10 +54,10 @@ var randomDiceRoll = function(){
 var setUp = function(){
   do{
     numOfPlayers = Number(prompt("How many players are playing?", ""))
-  } while(isNaN(numOfPlayers) == true && Number.isInteger(numOfPlayers) == false || numOfPlayers == "" || numOfPlayers == 1)
+  } while(isNaN(numOfPlayers) == true || Number.isInteger(numOfPlayers) == false || numOfPlayers == "" || numOfPlayers == 1)
   do{
     numOfDice = Number(prompt("How dice are we rolling?", ""))
-  } while(isNaN(numOfDice) == true && Number.isInteger(numOfDice) == false || numOfDice == "" || numOfDice == 1)
+  } while(isNaN(numOfDice) == true || Number.isInteger(numOfDice) == false || numOfDice == "" || numOfDice == 1)
   //Initialise player's score
   for(let i = 0; i < numOfPlayers; i++)
   {
